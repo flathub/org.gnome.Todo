@@ -42,8 +42,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-online-accounts/3.24/gnome-online-accounts-3.24.0.tar.xz",
-                    "sha256": "9e2f780e061641dfd692cc82269b0cac6cce73c74ce2d8a0a5e80889ed07c17b"
+                    "url": "https://download.gnome.org/sources/gnome-online-accounts/3.26/gnome-online-accounts-3.26.0.tar.xz",
+                    "sha256": "5cab736751c19efca762c0459e3358255d6662a6f4f27728cd02ea7b024e52ac"
                 }
             ]
         },
@@ -56,8 +56,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libical/libical/releases/download/v1.0.1/libical-1.0.1.tar.gz",
-                    "sha256": "089ce3c42d97fbd7a5d4b3c70adbdd82115dd306349c1f5c46a8fb3f8c949592"
+                    "url": "https://github.com/libical/libical/releases/download/v2.0.0/libical-2.0.0.tar.gz",
+                    "sha256": "654c11f759c19237be39f6ad401d917e5a05f36f1736385ed958e60cf21456da"
                 }
             ]
         },
@@ -86,8 +86,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evolution-data-server/3.24/evolution-data-server-3.24.1.tar.xz",
-                    "sha256": "6344b8035e2bcc5cd404bc86e6d874cdf54102a8948aa0ab7b4e717d328881b0"
+                    "url": "https://download.gnome.org/sources/evolution-data-server/3.26/evolution-data-server-3.26.1.tar.xz",
+                    "sha256": "ea207a3abd5e7bb8ccaa88741de7715a128083efdf8296af2c3a2fb8d072a4b3"
                 }
             ]
         },
@@ -97,8 +97,18 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/libpeas/1.20/libpeas-1.20.0.tar.xz",
-                    "sha256": "f392fffe2dc00072a51bb2a1b274224a06bdc5f9c3b3c0ac4816909e9933d354"
+                    "url": "https://download.gnome.org/sources/libpeas/1.22/libpeas-1.22.0.tar.xz",
+                    "sha256": "5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962"
+                }
+            ]
+        },
+        {
+            "name": "librest",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz",
+                    "sha256": "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
                 }
             ]
         },
@@ -107,8 +117,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-todo/3.24/gnome-todo-3.24.0.1.tar.xz",
-                    "sha256": "65311020613322c03b05dc6e7fac32c7d5ee3529f1a76ba2533a2fb998ed35cb"
+                    "url": "https://download.gnome.org/sources/gnome-todo/3.26/gnome-todo-3.26.2.tar.xz",
+                    "sha256": "c9b90048b62b4e6fe7cd7e9675be9a838d65e297584c308bacb25f1478e8dd80"
                 }
             ]
         }
