@@ -1,76 +1,93 @@
 {
-    "app-id": "org.gnome.Todo",
-    "runtime": "org.gnome.Platform",
-    "runtime-version": "3.26",
+    "app-id" : "org.gnome.Todo",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "3.28",
     "branch": "stable",
-    "sdk": "org.gnome.Sdk",
-    "command": "gnome-todo",
-    "tags": [],
-    "finish-args": [
-        /* X11 + XShm access */
-        "--share=ipc", "--socket=x11",
-        /* Wayland access */
+    "sdk" : "org.gnome.Sdk",
+    "command" : "gnome-todo",
+    "tags" : [
+        "devel"
+    ],
+    "desktop-file-name-prefix" : "(Development) ",
+    "finish-args" : [
+        "--share=ipc",
+        "--socket=x11",
         "--socket=wayland",
-        /* Needs to talk to the network: */
         "--share=network",
-        /* Evolution data server access */
+        "--system-talk-name=org.freedesktop.login1",
         "--talk-name=org.gnome.OnlineAccounts",
         "--talk-name=org.gnome.evolution.dataserver.AddressBook9",
         "--talk-name=org.gnome.evolution.dataserver.Calendar7",
         "--talk-name=org.gnome.evolution.dataserver.Sources5",
         "--talk-name=org.gnome.evolution.dataserver.Subprocess.Backend.*",
-        /* Needed for dconf to work */
-        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
-        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+        "--filesystem=home",
+        "--filesystem=xdg-run/dconf",
+        "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf",
+        "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
     "build-options" : {
-        "cflags": "-O2 -g",
-        "cxxflags": "-O2 -g",
-        "env": {
-            "V": "1"
+        "cflags" : "-O2 -g",
+        "cxxflags" : "-O2 -g",
+        "env" : {
+            "V" : "1"
         }
     },
-    "cleanup": ["/include", "/lib/pkgconfig",
-                "/share/pkgconfig", "/share/aclocal",
-                "/man", "/share/man", "/share/gtk-doc",
-                "/share/vala",
-                "*.la", "*.a"],
-    "modules": [
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/pkgconfig",
+        "/share/aclocal",
+        "/man",
+        "/share/man",
+        "/share/gtk-doc",
+        "/share/vala",
+        "*.la",
+        "*.a"
+    ],
+    "modules" : [
         {
-            "name": "gnome-online-accounts",
-            "config-opts": ["--disable-telepathy", "--disable-documentation", "--disable-backend"],
-            "sources": [
+            "name" : "gnome-online-accounts",
+            "config-opts" : [
+                "--disable-telepathy",
+                "--disable-documentation",
+                "--disable-backend"
+            ],
+            "sources" : [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-online-accounts/3.26/gnome-online-accounts-3.26.0.tar.xz",
-                    "sha256": "5cab736751c19efca762c0459e3358255d6662a6f4f27728cd02ea7b024e52ac"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/gnome-online-accounts/3.28/gnome-online-accounts-3.28.0.tar.xz",
+                    "sha256" : "87bc4ef307604f1ce4f09f6e5c9996ef8d37ca5e0a3bf76f6b27d71844adb40c"
                 }
             ]
         },
         {
-            "name": "libical",
-            "cleanup": [ "/lib/cmake"],
-            "buildsystem": "cmake",
-            "config-opts": [ "-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib",
-                             "-DBUILD_SHARED_LIBS:BOOL=ON" ],
-            "sources": [
+            "name" : "libical",
+            "cleanup" : [
+                "/lib/cmake"
+            ],
+            "cmake" : true,
+            "config-opts" : [
+                "-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib",
+                "-DBUILD_SHARED_LIBS:BOOL=ON"
+            ],
+            "sources" : [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/libical/libical/releases/download/v2.0.0/libical-2.0.0.tar.gz",
-                    "sha256": "654c11f759c19237be39f6ad401d917e5a05f36f1736385ed958e60cf21456da"
+                    "type" : "archive",
+                    "url" : "https://github.com/libical/libical/releases/download/v3.0.1/libical-3.0.1.tar.gz",
+                    "sha256" : "7f32a889df542592a357a73ff5f3bd7b5058450c1a3fb272b1c9a69e32d9ed10"
                 }
             ]
         },
         {
-            "name": "evolution-data-server",
-            "cleanup": [
+            "name" : "evolution-data-server",
+            "cleanup" : [
                 "/lib/cmake",
                 "/lib/evolution-data-server/*-backends",
                 "/libexec",
                 "/share/dbus-1/services"
             ],
-            "buildsystem": "cmake",
-            "config-opts": [
+            "config-opts" : [
                 "-DENABLE_GTK=ON",
                 "-DENABLE_GOOGLE_AUTH=OFF",
                 "-DENABLE_UOA=OFF",
@@ -83,42 +100,47 @@
                 "-DENABLE_GTK_DOC=OFF",
                 "-DENABLE_EXAMPLES=OFF"
             ],
-            "sources": [
+            "cmake" : true,
+            "sources" : [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/evolution-data-server/3.26/evolution-data-server-3.26.1.tar.xz",
-                    "sha256": "ea207a3abd5e7bb8ccaa88741de7715a128083efdf8296af2c3a2fb8d072a4b3"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/evolution-data-server/3.28/evolution-data-server-3.28.1.tar.xz",
+                    "sha256" : "6b04fc1adaba0541546267a77f1bc5aa549fe85eb9933492fdf994c69fa36989"
                 }
             ]
         },
         {
-            "name": "libpeas",
-            "cleanup": [ "/bin/*", "/lib/peas-demo" ],
-            "sources": [
+            "name" : "libpeas",
+            "cleanup" : [
+                "/bin/*",
+                "/lib/peas-demo"
+            ],
+            "sources" : [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/libpeas/1.22/libpeas-1.22.0.tar.xz",
-                    "sha256": "5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/libpeas/1.22/libpeas-1.22.0.tar.xz",
+                    "sha256" : "5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962"
                 }
             ]
         },
         {
-            "name": "librest",
-            "sources": [
+            "name" : "rest",
+            "sources" : [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz",
-                    "sha256": "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz",
+                    "sha256" : "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
                 }
             ]
         },
         {
-            "name": "gnome-todo",
-            "sources": [
+            "name" : "gnome-todo",
+            "buildsystem" : "meson",
+            "sources" : [
                 {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-todo/3.26/gnome-todo-3.26.2.tar.xz",
-                    "sha256": "c9b90048b62b4e6fe7cd7e9675be9a838d65e297584c308bacb25f1478e8dd80"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.1.tar.xz",
+                    "sha256" : "c7571fc040d8901dd0e528282ef0655687f23f29d304057c72548ab3e2c2cf23"
                 }
             ]
         }
