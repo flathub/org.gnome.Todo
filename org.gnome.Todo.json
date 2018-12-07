@@ -1,7 +1,7 @@
 {
     "app-id" : "org.gnome.Todo",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "3.28",
+    "runtime-version" : "3.30",
     "branch": "stable",
     "sdk" : "org.gnome.Sdk",
     "command" : "gnome-todo",
@@ -52,8 +52,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/gnome-online-accounts/3.28/gnome-online-accounts-3.28.0.tar.xz",
-                    "sha256" : "87bc4ef307604f1ce4f09f6e5c9996ef8d37ca5e0a3bf76f6b27d71844adb40c"
+                    "url" : "https://download.gnome.org/sources/gnome-online-accounts/3.30/gnome-online-accounts-3.30.0.tar.xz",
+                    "sha256" : "27d9d88942aa02a1f8d003dfe515483d8483f216ba1e297a8ef67a42cf4bcfc3"
                 }
             ]
         },
@@ -70,8 +70,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://github.com/libical/libical/releases/download/v3.0.1/libical-3.0.1.tar.gz",
-                    "sha256" : "7f32a889df542592a357a73ff5f3bd7b5058450c1a3fb272b1c9a69e32d9ed10"
+                    "url" : "https://github.com/libical/libical/releases/download/v3.0.4/libical-3.0.4.tar.gz",
+                    "sha256" : "72b216e10233c3f60cb06062facf41f3b0f70615e5a60b47f9853341a0d5d145"
                 }
             ]
         },
@@ -94,14 +94,15 @@
                 "-DENABLE_INTROSPECTION=ON",
                 "-DENABLE_INSTALLED_TESTS=OFF",
                 "-DENABLE_GTK_DOC=OFF",
-                "-DENABLE_EXAMPLES=OFF"
+                "-DENABLE_EXAMPLES=OFF",
+                "-DWITH_LIBDB=OFF"
             ],
             "buildsystem" : "cmake",
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/evolution-data-server/3.28/evolution-data-server-3.28.1.tar.xz",
-                    "sha256" : "6b04fc1adaba0541546267a77f1bc5aa549fe85eb9933492fdf994c69fa36989"
+                    "url" : "https://download.gnome.org/sources/evolution-data-server/3.30/evolution-data-server-3.30.2.tar.xz",
+                    "sha256" : "5b3ab1557ea27475e5f78014ae5a4a989179cbf8c98ce7e26bd70b7767388e40"
                 }
             ]
         },
