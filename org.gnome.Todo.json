@@ -35,15 +35,14 @@
         {
             "name" : "gnome-online-accounts",
             "config-opts" : [
-                "--disable-telepathy",
                 "--disable-documentation",
                 "--disable-backend"
             ],
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/gnome-online-accounts/3.30/gnome-online-accounts-3.30.0.tar.xz",
-                    "sha256" : "27d9d88942aa02a1f8d003dfe515483d8483f216ba1e297a8ef67a42cf4bcfc3"
+                    "url" : "https://download.gnome.org/sources/gnome-online-accounts/3.36/gnome-online-accounts-3.36.0.tar.xz",
+                    "sha256" : "1c8f62990833ca41188dbb80c5e99d99b57a62608ca675bbcd37bc2244742f2e"
                 }
             ]
         },
@@ -65,6 +64,7 @@
                 }
             ]
         },
+        "shared-modules/intltool/intltool-0.51.json",
         {
             "name" : "evolution-data-server",
             "cleanup" : [
@@ -75,13 +75,11 @@
             ],
             "config-opts" : [
                 "-DENABLE_GTK=ON",
-                "-DENABLE_GOOGLE_AUTH=OFF",
-                "-DENABLE_UOA=OFF",
                 "-DENABLE_GOOGLE=OFF",
-                "-DENABLE_VALA_BINDINGS=ON",
+                "-DENABLE_VALA_BINDINGS=OFF",
                 "-DENABLE_WEATHER=OFF",
                 "-DWITH_OPENLDAP=OFF",
-                "-DENABLE_INTROSPECTION=ON",
+                "-DENABLE_INTROSPECTION=OFF",
                 "-DENABLE_INSTALLED_TESTS=OFF",
                 "-DENABLE_GTK_DOC=OFF",
                 "-DENABLE_EXAMPLES=OFF",
@@ -91,13 +89,15 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/evolution-data-server/3.30/evolution-data-server-3.30.2.tar.xz",
-                    "sha256" : "5b3ab1557ea27475e5f78014ae5a4a989179cbf8c98ce7e26bd70b7767388e40"
+                    "url" : "https://download.gnome.org/sources/evolution-data-server/3.36/evolution-data-server-3.36.2.tar.xz",
+                    "sha256" : "98e274cfec16cee6a4b3b9c7897f6e1136d00e4f31a0d66214925abbac76e97b"
                 }
             ]
         },
         {
             "name" : "libpeas",
+            "buildsystem": "meson",
+            "config-opts": ["-Dgtk_doc=false"],
             "cleanup" : [
                 "/bin/*",
                 "/lib/peas-demo"
@@ -105,8 +105,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/libpeas/1.22/libpeas-1.22.0.tar.xz",
-                    "sha256" : "5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962"
+                    "url" : "https://download.gnome.org/sources/libpeas/1.26/libpeas-1.26.0.tar.xz",
+                    "sha256" : "a976d77e20496479a8e955e6a38fb0e5c5de89cf64d9f44e75c2213ee14f7376"
                 }
             ]
         },
