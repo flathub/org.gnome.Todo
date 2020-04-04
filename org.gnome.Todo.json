@@ -132,6 +132,10 @@
                 {
                     "type": "patch",
                     "path": "gnome-todo-eds-libecal-2.0.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "appdata-xml.patch"
                 }
             ]
         }
