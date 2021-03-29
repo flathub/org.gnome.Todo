@@ -1,7 +1,7 @@
 {
     "app-id" : "org.gnome.Todo",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "3.36",
+    "runtime-version" : "40",
     "branch": "stable",
     "sdk" : "org.gnome.Sdk",
     "command" : "gnome-todo",
@@ -41,8 +41,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/gnome-online-accounts/3.36/gnome-online-accounts-3.36.0.tar.xz",
-                    "sha256" : "1c8f62990833ca41188dbb80c5e99d99b57a62608ca675bbcd37bc2244742f2e"
+                    "url" : "https://download.gnome.org/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz",
+                    "sha256" : "e18889d67806da84d1261bfed1cf61d2baec131d2d0d0a92f83ff33d4649358e"
                 }
             ]
         },
@@ -59,8 +59,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://github.com/libical/libical/releases/download/v3.0.8/libical-3.0.8.tar.gz",
-                    "sha256" : "09fecacaf75ba5a242159e3a9758a5446b5ce4d0ab684f98a7040864e1d1286f"
+                    "url" : "https://github.com/libical/libical/releases/download/v3.0.9/libical-3.0.9.tar.gz",
+                    "sha256" : "bd26d98b7fcb2eb0cd5461747bbb02024ebe38e293ca53a7dfdcb2505265a728"
                 }
             ]
         },
@@ -83,14 +83,15 @@
                 "-DENABLE_INSTALLED_TESTS=OFF",
                 "-DENABLE_GTK_DOC=OFF",
                 "-DENABLE_EXAMPLES=OFF",
-                "-DWITH_LIBDB=OFF"
+                "-DWITH_LIBDB=OFF",
+                "-DENABLE_CANBERRA=OFF"
             ],
             "buildsystem" : "cmake",
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/evolution-data-server/3.36/evolution-data-server-3.36.2.tar.xz",
-                    "sha256" : "98e274cfec16cee6a4b3b9c7897f6e1136d00e4f31a0d66214925abbac76e97b"
+                    "url" : "https://download.gnome.org/sources/evolution-data-server/3.40/evolution-data-server-3.40.0.tar.xz",
+                    "sha256" : "ed572f0cb6a2365809943449a8ccbee652681e2d9a1a7f4a54b60cbb53d87445"
                 }
             ]
         },
@@ -105,8 +106,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/libpeas/1.26/libpeas-1.26.0.tar.xz",
-                    "sha256" : "a976d77e20496479a8e955e6a38fb0e5c5de89cf64d9f44e75c2213ee14f7376"
+                    "url" : "https://download.gnome.org/sources/libpeas/1.30/libpeas-1.30.0.tar.xz",
+                    "sha256" : "0bf5562e9bfc0382a9dcb81f64340787542568762a3a367d9d90f6185898b9a3"
                 }
             ]
         },
