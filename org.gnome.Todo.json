@@ -2,22 +2,21 @@
     "app-id" : "org.gnome.Todo",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "40",
-    "branch": "stable",
     "sdk" : "org.gnome.Sdk",
     "command" : "gnome-todo",
     "finish-args" : [
+        "--device=dri",
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
         "--share=network",
         "--system-talk-name=org.freedesktop.login1",
-        "--talk-name=org.gnome.OnlineAccounts",
         "--talk-name=org.gnome.evolution.dataserver.AddressBook9",
         "--talk-name=org.gnome.evolution.dataserver.Calendar8",
         "--talk-name=org.gnome.evolution.dataserver.Sources5",
         "--talk-name=org.gnome.evolution.dataserver.Subprocess.Backend.*",
-        "--filesystem=home",
-        "--metadata=X-DConf=migrate-path=/org/gnome/todo/"
+        "--talk-name=org.gnome.OnlineAccounts",
+        "--talk-name=org.gnome.SettingsDaemon.Color"
     ],
     "cleanup" : [
         "/include",
@@ -32,6 +31,7 @@
         "*.a"
     ],
     "modules" : [
+        "shared-modules/intltool/intltool-0.51.json",
         {
             "name" : "gnome-online-accounts",
             "config-opts" : [
@@ -41,8 +41,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz",
-                    "sha256" : "e18889d67806da84d1261bfed1cf61d2baec131d2d0d0a92f83ff33d4649358e"
+                    "url": "https://download.gnome.org/sources/gnome-online-accounts/3.40/gnome-online-accounts-3.40.0.tar.xz",
+                    "sha256": "585c4f979f6f543b77bfdb4fb01eb18ba25c2aec5b7866c676d929616fb2c3fa"
                 }
             ]
         },
@@ -51,73 +51,154 @@
             "cleanup" : [
                 "/lib/cmake"
             ],
-            "buildsystem" : "cmake",
+            "buildsystem" : "cmake-ninja",
             "config-opts" : [
                 "-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib",
-                "-DBUILD_SHARED_LIBS:BOOL=ON"
+                "-DBUILD_SHARED_LIBS=On",
+                "-DICAL_BUILD_DOCS=False",
+                "-DWITH_CXX_BINDINGS=False"
             ],
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://github.com/libical/libical/releases/download/v3.0.9/libical-3.0.9.tar.gz",
-                    "sha256" : "bd26d98b7fcb2eb0cd5461747bbb02024ebe38e293ca53a7dfdcb2505265a728"
-                }
-            ]
-        },
-        "shared-modules/intltool/intltool-0.51.json",
-        {
-            "name" : "evolution-data-server",
-            "cleanup" : [
-                "/lib/cmake",
-                "/lib/evolution-data-server/*-backends",
-                "/libexec",
-                "/share/dbus-1/services"
-            ],
-            "config-opts" : [
-                "-DENABLE_GTK=ON",
-                "-DENABLE_GOOGLE=OFF",
-                "-DENABLE_VALA_BINDINGS=OFF",
-                "-DENABLE_WEATHER=OFF",
-                "-DWITH_OPENLDAP=OFF",
-                "-DENABLE_INTROSPECTION=OFF",
-                "-DENABLE_INSTALLED_TESTS=OFF",
-                "-DENABLE_GTK_DOC=OFF",
-                "-DENABLE_EXAMPLES=OFF",
-                "-DWITH_LIBDB=OFF",
-                "-DENABLE_CANBERRA=OFF"
-            ],
-            "buildsystem" : "cmake",
-            "sources" : [
-                {
-                    "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/evolution-data-server/3.40/evolution-data-server-3.40.0.tar.xz",
-                    "sha256" : "ed572f0cb6a2365809943449a8ccbee652681e2d9a1a7f4a54b60cbb53d87445"
+                    "url" : "https://github.com/libical/libical/releases/download/v3.0.8/libical-3.0.8.tar.gz",
+                    "sha256" : "09fecacaf75ba5a242159e3a9758a5446b5ce4d0ab684f98a7040864e1d1286f"
                 }
             ]
         },
         {
             "name" : "libpeas",
-            "buildsystem": "meson",
-            "config-opts": ["-Dgtk_doc=false"],
+            "buildsystem" : "meson",
             "cleanup" : [
                 "/bin/*",
-                "/lib/peas-demo"
+                "/lib/peas-demo",
+                "/lib/libpeas-gtk*"
+            ],
+            "config-opts" : [
+                "-Dwidgetry=false",
+                "-Ddemos=false"
             ],
             "sources" : [
                 {
-                    "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/libpeas/1.30/libpeas-1.30.0.tar.xz",
-                    "sha256" : "0bf5562e9bfc0382a9dcb81f64340787542568762a3a367d9d90f6185898b9a3"
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/libpeas.git",
+                    "branch" : "libpeas-1.30.0"
                 }
             ]
         },
         {
             "name" : "rest",
+            "config-opts": [
+                "--disable-introspection",
+                "--disable-gtk-doc",
+                "--disable-gtk-doc-html"
+            ],
             "sources" : [
                 {
-                    "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz",
-                    "sha256" : "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz",
+                    "sha256": "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
+                }
+            ]
+        },
+        {
+            "name" : "evolution-data-server",
+            "cleanup": [ "/share/GConf" ],
+            "config-opts" : [
+                "-DENABLE_CANBERRA=OFF",
+                "-DENABLE_DOT_LOCKING=OFF",
+                "-DENABLE_FILE_LOCKING=fcntl",
+                "-DENABLE_GTK=OFF",
+                "-DENABLE_GOOGLE=OFF",
+                "-DENABLE_VALA_BINDINGS=ON",
+                "-DENABLE_WEATHER=OFF",
+                "-DWITH_OPENLDAP=OFF",
+                "-DWITH_LIBDB=OFF",
+                "-DENABLE_INTROSPECTION=ON",
+                "-DENABLE_INSTALLED_TESTS=OFF",
+                "-DENABLE_GTK_DOC=OFF",
+                "-DENABLE_EXAMPLES=OFF",
+                "-DENABLE_VALA_BINDINGS=OFF",
+                "-DENABLE_INTROSPECTION=OFF",
+                "-DWITH_PHONENUMBER=OFF",
+                "-DWITH_SYSTEMDUSERUNITDIR=OFF",
+                "-DENABLE_OAUTH2=OFF"
+            ],
+            "buildsystem" : "cmake-ninja",
+            "sources" : [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/evolution-data-server/3.40/evolution-data-server-3.40.1.tar.xz",
+                    "sha256": "eac75f348aa5defbe9473fa30ab6084635ee64d8e3eaaec60a62c27f149c3e22"
+                }
+            ]
+        },
+        {
+            "name" : "libportal",
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/flatpak/libportal.git"
+                }
+            ]
+        },
+        {
+            "name": "sassc",
+            "cleanup": [
+                "*"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/sass/sassc/archive/3.5.0.tar.gz",
+                    "sha256": "26f54e31924b83dd706bc77df5f8f5553a84d51365f0e3c566df8de027918042"
+                },
+                {
+                    "type": "script",
+                    "dest-filename": "autogen.sh",
+                    "commands": [
+                        "autoreconf -si"
+                    ]
+                }
+            ],
+            "modules": [
+                {
+                    "name": "libsass",
+                    "cleanup": [
+                        "*"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/sass/libsass/archive/3.5.4.tar.gz",
+                            "sha256": "5f61cbcddaf8e6ef7a725fcfa5d05297becd7843960f245197ebb655ff868770"
+                        },
+                        {
+                            "type": "script",
+                            "dest-filename": "autogen.sh",
+                            "commands": [
+                                "autoreconf -si"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name" : "libadwaita",
+            "buildsystem" : "meson",
+            "config-opts" : [
+                "-Dexamples=false",
+                "-Dtests=false",
+                "-Dvapi=false"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/libadwaita.git",
+                    "tag": "1.0.0-alpha.1",
+                    "commit": "faa9f26a2b8a89923c0b83d42e84078f672c19ec"
                 }
             ]
         },
@@ -127,16 +208,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/gnome-todo/3.28/gnome-todo-3.28.1.tar.xz",
-                    "sha256" : "c7571fc040d8901dd0e528282ef0655687f23f29d304057c72548ab3e2c2cf23"
-                },
-                {
-                    "type": "patch",
-                    "path": "gnome-todo-eds-libecal-2.0.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "appdata-xml.patch"
+                    "url" : "https://download.gnome.org/sources/gnome-todo/40/gnome-todo-40.0.tar.xz",
+                    "sha256" : "68097c96f0675c7142667d104344e83472dd7fcc538fec0acdbf6026bb9ca1b1"
                 }
             ]
         }
