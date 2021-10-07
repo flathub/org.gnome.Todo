@@ -1,7 +1,7 @@
 {
     "app-id" : "org.gnome.Todo",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "40",
+    "runtime-version" : "41",
     "sdk" : "org.gnome.Sdk",
     "command" : "gnome-todo",
     "finish-args" : [
@@ -61,8 +61,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://github.com/libical/libical/releases/download/v3.0.8/libical-3.0.8.tar.gz",
-                    "sha256" : "09fecacaf75ba5a242159e3a9758a5446b5ce4d0ab684f98a7040864e1d1286f"
+                    "url" : "https://github.com/libical/libical/releases/download/v3.0.10/libical-3.0.10.tar.gz",
+                    "sha256" : "f933b3e6cf9d56a35bb5625e8e4a9c3a50239a85aea05ed842932c1a1dc336b4"
                 }
             ]
         },
@@ -128,8 +128,8 @@
             "sources" : [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evolution-data-server/3.40/evolution-data-server-3.40.1.tar.xz",
-                    "sha256": "eac75f348aa5defbe9473fa30ab6084635ee64d8e3eaaec60a62c27f149c3e22"
+                    "url": "https://download.gnome.org/sources/evolution-data-server/3.42/evolution-data-server-3.42.0.tar.xz",
+                    "sha256": "e8fdd3bc47a07d6f8a3052bbcae880f20f6dbc4f6973a8e90d00169bb99b1635"
                 }
             ]
         },
@@ -208,8 +208,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://download.gnome.org/sources/gnome-todo/40/gnome-todo-40.0.tar.xz",
-                    "sha256" : "68097c96f0675c7142667d104344e83472dd7fcc538fec0acdbf6026bb9ca1b1"
+                    "url" : "https://download.gnome.org/sources/gnome-todo/41/gnome-todo-41.0.tar.xz",
+                    "sha256" : "5a657c978f451f61fb773f0b14f3121b9236fc504b41eb20940b4ed2004224e5"
                 }
             ]
         }
