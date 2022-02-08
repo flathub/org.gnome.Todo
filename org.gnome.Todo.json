@@ -139,7 +139,9 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://github.com/flatpak/libportal.git"
+                    "url" : "https://github.com/flatpak/libportal.git",
+                    "tag" : "0.4",
+                    "commit" : "f68764e288ede516d902b131cc4fadded3804059"
                 }
             ]
         },
