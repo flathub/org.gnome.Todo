@@ -82,7 +82,7 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/GNOME/libpeas.git",
-                    "branch" : "libpeas-1.30.0"
+                    "tag" : "libpeas-1.30.0"
                 }
             ]
         },
