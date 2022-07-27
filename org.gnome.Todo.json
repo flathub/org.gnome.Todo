@@ -80,9 +80,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/libpeas.git",
-                    "tag": "libpeas-1.32.0"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libpeas/1.32/libpeas-1.32.0.tar.xz",
+                    "sha256": "d625520fa02e8977029b246ae439bc218968965f1e82d612208b713f1dcc3d0e"
                 }
             ]
         },
@@ -109,10 +109,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/gcr.git",
-                    "tag": "3.41.1",
-                    "commit": "664f8d8619cc6d661bd863107824efbac383a9bf"
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/gcr/3.41/gcr-3.41.1.tar.xz",
+                    "sha256": "bb7128a3c2febbfee9c03b90d77d498d0ceb237b0789802d60185c71c4bea24f"
                 }
             ]
         },
@@ -144,9 +143,9 @@
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
-                    "type" : "git",
-                    "branch" : "gnome-42",
-                    "url" : "https://gitlab.gnome.org/GNOME/evolution-data-server.git"
+                    "type": "git",
+                    "branch": "gnome-42",
+                    "url": "https://gitlab.gnome.org/GNOME/evolution-data-server.git"
                 }
             ]
         },
@@ -160,7 +159,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "branch": "main",
+                    "tag": "0.6",
+                    "commit": "13df0b887a7eb7b0f9b14069561a41f62e813155",
                     "url": "https://github.com/flatpak/libportal.git"
                 }
             ]
