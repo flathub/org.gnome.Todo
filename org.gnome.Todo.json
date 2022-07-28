@@ -145,6 +145,7 @@
                 {
                     "type": "git",
                     "branch": "gnome-42",
+                    "commit": "e8d117282a4fb150fa70505cd4da1d4c6afed71b",
                     "url": "https://gitlab.gnome.org/GNOME/evolution-data-server.git"
                 }
             ]
@@ -158,10 +159,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "tag": "0.6",
-                    "commit": "13df0b887a7eb7b0f9b14069561a41f62e813155",
-                    "url": "https://github.com/flatpak/libportal.git"
+                    "type": "archive",
+                    "url": "https://github.com/flatpak/libportal/releases/download/0.6/libportal-0.6.tar.xz",
+                    "sha256": "88a12c3ba71bc31acff7238c280de697d609cebc50830c3766776ec35abc6566"
                 }
             ]
         },
