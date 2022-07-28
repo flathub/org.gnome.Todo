@@ -144,7 +144,6 @@
             "sources": [
                 {
                     "type": "git",
-                    "branch": "gnome-42",
                     "commit": "e8d117282a4fb150fa70505cd4da1d4c6afed71b",
                     "url": "https://gitlab.gnome.org/GNOME/evolution-data-server.git"
                 }
