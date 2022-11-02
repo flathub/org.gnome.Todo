@@ -204,8 +204,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/World/Endeavour.git",
-                    "tag": "v42.0",
-                    "commit": "188ef00f6194c1dd36d39279c2d7a5429a68d3f5"
+                    "tag": "43.0",
+                    "commit": "92706b42784e553d9f841117111a5e14bd201e1c"
                 }
             ]
         }
