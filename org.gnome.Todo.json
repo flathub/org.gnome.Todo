@@ -1,213 +1,213 @@
 {
-    "app-id": "org.gnome.Todo",
-    "runtime": "org.gnome.Platform",
-    "runtime-version": "43",
-    "sdk": "org.gnome.Sdk",
-    "command": "endeavour",
-    "finish-args": [
-        "--device=dri",
-        "--share=ipc",
-        "--socket=fallback-x11",
-        "--socket=wayland",
-        "--share=network",
-        "--system-talk-name=org.freedesktop.login1",
-        "--talk-name=org.gnome.evolution.dataserver.AddressBook9",
-        "--talk-name=org.gnome.evolution.dataserver.Calendar8",
-        "--talk-name=org.gnome.evolution.dataserver.Sources5",
-        "--talk-name=org.gnome.evolution.dataserver.Subprocess.Backend.*",
-        "--talk-name=org.gnome.OnlineAccounts"
-    ],
-    "cleanup": [
-        "/include",
-        "/lib/pkgconfig",
-        "/share/pkgconfig",
-        "/share/aclocal",
-        "/man",
-        "/share/man",
-        "/share/gtk-doc",
-        "/share/vala",
-        "*.la",
-        "*.a"
-    ],
-    "modules": [
-        "shared-modules/intltool/intltool-0.51.json",
+  "app-id": "org.gnome.Todo",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "45",
+  "sdk": "org.gnome.Sdk",
+  "command": "endeavour",
+  "finish-args": [
+    "--device=dri",
+    "--share=ipc",
+    "--socket=fallback-x11",
+    "--socket=wayland",
+    "--share=network",
+    "--system-talk-name=org.freedesktop.login1",
+    "--talk-name=org.gnome.evolution.dataserver.AddressBook9",
+    "--talk-name=org.gnome.evolution.dataserver.Calendar8",
+    "--talk-name=org.gnome.evolution.dataserver.Sources5",
+    "--talk-name=org.gnome.evolution.dataserver.Subprocess.Backend.*",
+    "--talk-name=org.gnome.OnlineAccounts"
+  ],
+  "cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/share/pkgconfig",
+    "/share/aclocal",
+    "/man",
+    "/share/man",
+    "/share/gtk-doc",
+    "/share/vala",
+    "*.la",
+    "*.a"
+  ],
+  "modules": [
+    "shared-modules/intltool/intltool-0.51.json",
+    {
+      "name": "gnome-online-accounts",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Dvapi=false",
+        "-Dgoabackend=false"
+      ],
+      "sources": [
         {
-            "name": "gnome-online-accounts",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dvapi=false",
-                "-Dgoabackend=false"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-online-accounts/3.46/gnome-online-accounts-3.46.0.tar.xz",
-                    "sha256": "5e7859ce4858a6b99d3995ed70527d66e297bb90bbf75ec8780fe9da22c1fcaa"
-                }
-            ]
-        },
-        {
-            "name": "libical",
-            "cleanup": [
-                "/lib/cmake"
-            ],
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib",
-                "-DBUILD_SHARED_LIBS=On",
-                "-DICAL_BUILD_DOCS=False",
-                "-DWITH_CXX_BINDINGS=False"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/libical/libical/releases/download/v3.0.14/libical-3.0.14.tar.gz",
-                    "sha256": "4284b780356f1dc6a01f16083e7b836e63d3815e27ed0eaaad684712357ccc8f"
-                }
-            ]
-        },
-        {
-            "name": "libpeas",
-            "buildsystem": "meson",
-            "cleanup": [
-                "/bin/*",
-                "/lib/peas-demo",
-                "/lib/libpeas-gtk*"
-            ],
-            "config-opts": [
-                "-Dwidgetry=false",
-                "-Ddemos=false"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/libpeas/1.34/libpeas-1.34.0.tar.xz",
-                    "sha256": "4305f715dab4b5ad3e8007daec316625e7065a94e63e25ef55eb1efb964a7bf0"
-                }
-            ]
-        },
-        {
-            "name": "rest",
-            "config-opts": [
-            	"-Dintrospection=false",
-                "-Dgtk_doc=false"
-            ],
-            "buildsystem" : "meson",
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/rest/0.9/rest-0.9.1.tar.xz",
-                    "sha256": "9266a5c10ece383e193dfb7ffb07b509cc1f51521ab8dad76af96ed14212c2e3"
-                }
-            ]
-        },
-        {
-            "name": "evolution-data-server",
-            "cleanup": [
-                "/share/GConf"
-            ],
-            "config-opts": [
-                "-DENABLE_CANBERRA=OFF",
-                "-DENABLE_DOT_LOCKING=OFF",
-                "-DENABLE_FILE_LOCKING=fcntl",
-                "-DENABLE_GTK=OFF",
-                "-DENABLE_GOOGLE=OFF",
-                "-DENABLE_VALA_BINDINGS=ON",
-                "-DENABLE_WEATHER=OFF",
-                "-DWITH_OPENLDAP=OFF",
-                "-DWITH_LIBDB=OFF",
-                "-DENABLE_INTROSPECTION=ON",
-                "-DENABLE_INSTALLED_TESTS=OFF",
-                "-DENABLE_GTK_DOC=OFF",
-                "-DENABLE_EXAMPLES=OFF",
-                "-DENABLE_VALA_BINDINGS=OFF",
-                "-DENABLE_INTROSPECTION=OFF",
-                "-DWITH_PHONENUMBER=OFF",
-                "-DWITH_SYSTEMDUSERUNITDIR=OFF",
-                "-DENABLE_OAUTH2=OFF"
-            ],
-            "buildsystem": "cmake-ninja",
-            "sources": [
-                {
-                    "type": "git",
-                    "commit": "ed45e3272a88ea9097a4fe25b5d6bfed4e1272ce",
-		    "tag": "3.46.0",
-                    "url": "https://gitlab.gnome.org/GNOME/evolution-data-server.git"
-                }
-            ]
-        },
-        {
-            "name": "libadwaita",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dexamples=false",
-                "-Dtests=false",
-                "-Dvapi=false"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/libadwaita.git",
-                    "tag": "1.2.alpha",
-                    "commit": "9150f4016a04064a00733b78391c8e6aad49bee8"
-                }
-            ],
-            "modules": [
-                {
-                    "name": "sassc",
-                    "cleanup": [
-                        "*"
-                    ],
-                    "sources": [
-                        {
-                            "type": "archive",
-                            "url": "https://github.com/sass/sassc/archive/3.5.0.tar.gz",
-                            "sha256": "26f54e31924b83dd706bc77df5f8f5553a84d51365f0e3c566df8de027918042"
-                        },
-                        {
-                            "type": "script",
-                            "dest-filename": "autogen.sh",
-                            "commands": [
-                                "autoreconf -si"
-                            ]
-                        }
-                    ],
-                    "modules": [
-                        {
-                            "name": "libsass",
-                            "cleanup": [
-                                "*"
-                            ],
-                            "sources": [
-                                {
-                                    "type": "archive",
-                                    "url": "https://github.com/sass/libsass/archive/3.5.4.tar.gz",
-                                    "sha256": "5f61cbcddaf8e6ef7a725fcfa5d05297becd7843960f245197ebb655ff868770"
-                                },
-                                {
-                                    "type": "script",
-                                    "dest-filename": "autogen.sh",
-                                    "commands": [
-                                        "autoreconf -si"
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "endeavour",
-            "buildsystem": "meson",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/World/Endeavour.git",
-                    "tag": "43.0",
-                    "commit": "92706b42784e553d9f841117111a5e14bd201e1c"
-                }
-            ]
+          "type": "archive",
+          "url": "https://download.gnome.org/sources/gnome-online-accounts/3.46/gnome-online-accounts-3.46.0.tar.xz",
+          "sha256": "5e7859ce4858a6b99d3995ed70527d66e297bb90bbf75ec8780fe9da22c1fcaa"
         }
-    ]
+      ]
+    },
+    {
+      "name": "libical",
+      "cleanup": [
+        "/lib/cmake"
+      ],
+      "buildsystem": "cmake-ninja",
+      "config-opts": [
+        "-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib",
+        "-DBUILD_SHARED_LIBS=On",
+        "-DICAL_BUILD_DOCS=False",
+        "-DWITH_CXX_BINDINGS=False"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/libical/libical/releases/download/v3.0.14/libical-3.0.14.tar.gz",
+          "sha256": "4284b780356f1dc6a01f16083e7b836e63d3815e27ed0eaaad684712357ccc8f"
+        }
+      ]
+    },
+    {
+      "name": "libpeas",
+      "buildsystem": "meson",
+      "cleanup": [
+        "/bin/*",
+        "/lib/peas-demo",
+        "/lib/libpeas-gtk*"
+      ],
+      "config-opts": [
+        "-Dwidgetry=false",
+        "-Ddemos=false"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://download.gnome.org/sources/libpeas/1.34/libpeas-1.34.0.tar.xz",
+          "sha256": "4305f715dab4b5ad3e8007daec316625e7065a94e63e25ef55eb1efb964a7bf0"
+        }
+      ]
+    },
+    {
+      "name": "rest",
+      "config-opts": [
+        "-Dintrospection=false",
+        "-Dgtk_doc=false"
+      ],
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://download.gnome.org/sources/rest/0.9/rest-0.9.1.tar.xz",
+          "sha256": "9266a5c10ece383e193dfb7ffb07b509cc1f51521ab8dad76af96ed14212c2e3"
+        }
+      ]
+    },
+    {
+      "name": "evolution-data-server",
+      "cleanup": [
+        "/share/GConf"
+      ],
+      "config-opts": [
+        "-DENABLE_CANBERRA=OFF",
+        "-DENABLE_DOT_LOCKING=OFF",
+        "-DENABLE_FILE_LOCKING=fcntl",
+        "-DENABLE_GTK=OFF",
+        "-DENABLE_GOOGLE=OFF",
+        "-DENABLE_VALA_BINDINGS=ON",
+        "-DENABLE_WEATHER=OFF",
+        "-DWITH_OPENLDAP=OFF",
+        "-DWITH_LIBDB=OFF",
+        "-DENABLE_INTROSPECTION=ON",
+        "-DENABLE_INSTALLED_TESTS=OFF",
+        "-DENABLE_GTK_DOC=OFF",
+        "-DENABLE_EXAMPLES=OFF",
+        "-DENABLE_VALA_BINDINGS=OFF",
+        "-DENABLE_INTROSPECTION=OFF",
+        "-DWITH_PHONENUMBER=OFF",
+        "-DWITH_SYSTEMDUSERUNITDIR=OFF",
+        "-DENABLE_OAUTH2=OFF"
+      ],
+      "buildsystem": "cmake-ninja",
+      "sources": [
+        {
+          "type": "git",
+          "commit": "ed45e3272a88ea9097a4fe25b5d6bfed4e1272ce",
+          "tag": "3.46.0",
+          "url": "https://gitlab.gnome.org/GNOME/evolution-data-server.git"
+        }
+      ]
+    },
+    {
+      "name": "libadwaita",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Dexamples=false",
+        "-Dtests=false",
+        "-Dvapi=false"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/GNOME/libadwaita.git",
+          "tag": "1.2.alpha",
+          "commit": "9150f4016a04064a00733b78391c8e6aad49bee8"
+        }
+      ],
+      "modules": [
+        {
+          "name": "sassc",
+          "cleanup": [
+            "*"
+          ],
+          "sources": [
+            {
+              "type": "archive",
+              "url": "https://github.com/sass/sassc/archive/3.5.0.tar.gz",
+              "sha256": "26f54e31924b83dd706bc77df5f8f5553a84d51365f0e3c566df8de027918042"
+            },
+            {
+              "type": "script",
+              "dest-filename": "autogen.sh",
+              "commands": [
+                "autoreconf -si"
+              ]
+            }
+          ],
+          "modules": [
+            {
+              "name": "libsass",
+              "cleanup": [
+                "*"
+              ],
+              "sources": [
+                {
+                  "type": "archive",
+                  "url": "https://github.com/sass/libsass/archive/3.5.4.tar.gz",
+                  "sha256": "5f61cbcddaf8e6ef7a725fcfa5d05297becd7843960f245197ebb655ff868770"
+                },
+                {
+                  "type": "script",
+                  "dest-filename": "autogen.sh",
+                  "commands": [
+                    "autoreconf -si"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "endeavour",
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/World/Endeavour.git",
+          "tag": "43.0",
+          "commit": "92706b42784e553d9f841117111a5e14bd201e1c"
+        }
+      ]
+    }
+  ]
 }
