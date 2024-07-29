@@ -146,6 +146,10 @@
           "url": "https://gitlab.gnome.org/World/Endeavour.git",
           "tag": "43.0",
           "commit": "92706b42784e553d9f841117111a5e14bd201e1c"
+        },
+        {
+          "type": "patch",
+          "path": "fix-appdata.patch"
         }
       ]
     }
