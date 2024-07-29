@@ -1,0 +1,117 @@
+From cf38689e583ca31edd5db3bcca4fb755cc3ac653 Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Mon, 29 Jul 2024 18:00:56 +0300
+Subject: [PATCH] Fix appdata papercuts
+
+- Update homepage URL
+- Add vcs-browser URL to show the source code repository
+- Add translate URL to show the translation repository
+- Fix markup errors
+---
+ data/appdata/org.gnome.Todo.appdata.xml.in.in | 44 ++++++++------------------------------------
+ 1 file changed, 8 insertions(+), 36 deletions(-)
+
+diff --git a/data/appdata/org.gnome.Todo.appdata.xml.in.in b/data/appdata/org.gnome.Todo.appdata.xml.in.in
+index 07a4290..12d0dd3 100644
+--- a/data/appdata/org.gnome.Todo.appdata.xml.in.in
++++ b/data/appdata/org.gnome.Todo.appdata.xml.in.in
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<component type="desktop">
++<component type="desktop-application">
+   <id>@appid@</id>
+   <metadata_license>CC0-1.0</metadata_license>
+   <project_license>GPL-3.0+</project_license>
+@@ -13,12 +13,14 @@
+     </p>
+   </description>
+ 
+-  <url type="homepage">https://wiki.gnome.org/Apps/Todo</url>
++  <url type="homepage">https://gitlab.gnome.org/World/Endeavour</url>
+   <url type="bugtracker">https://gitlab.gnome.org/World/Endeavour/issues</url>
++  <url type="vcs-browser">https://gitlab.gnome.org/World/Endeavour</url>
++  <url type="translate">https://l10n.gnome.org/module/Endeavour/</url>
+   <project_group>GNOME</project_group>
+ 
+   <screenshots>
+-    <screenshot width="1920" height="1080">
++    <screenshot width="1920" height="1080" type="default">
+       <image>https://gitlab.gnome.org/World/Endeavour/raw/main/data/appdata/no-tasks.png</image>
+       <caption>Empty state</caption>
+     </screenshot>
+@@ -37,7 +39,7 @@
+     <release date="2022-11-02" version="43.0">
+       <description>
+         <p>
+-          Endeavour 43 brings major improvements:
++          Endeavour 43 brings major improvements:</p>
+           <ul>
+             <li>
+               The Welcome screen has been removed, as its design didn't really
+@@ -54,7 +56,6 @@
+               Lots of bugs have been squashed, leading to a more stable experience.
+             </li>
+           </ul>
+-        </p>
+       </description>
+     </release>
+ 
+@@ -95,7 +96,7 @@
+           After 4 years in development, we are proud to annouce GNOME To Do 40.0!
+         </p>
+         <p>
+-          GNOME To Do 40 brings major improvements:
++          GNOME To Do 40 brings major improvements:</p>
+           <ul>
+             <li>
+               Loading, saving, and editing tasks is now completely asynchronous. This
+@@ -112,45 +113,16 @@
+               rewarding and engaging to use.
+             </li>
+           </ul>
+-        </p>
+         <p>
+           Unfortunately, Todoist and Todo.txt are disabled now. The future of these
+           integration points is uncertain, given that the featureset they support is
+           different than GNOME To Do.
+         </p>
+         <p>This release also updates translations, and adds new translations.</p>
+       </description>
+     </release>
+   </releases>
+-  <content_rating type="oars-1.1">
+-    <content_attribute id="violence-cartoon">none</content_attribute>
+-    <content_attribute id="violence-fantasy">none</content_attribute>
+-    <content_attribute id="violence-realistic">none</content_attribute>
+-    <content_attribute id="violence-bloodshed">none</content_attribute>
+-    <content_attribute id="violence-sexual">none</content_attribute>
+-    <content_attribute id="violence-desecration">none</content_attribute>
+-    <content_attribute id="violence-slavery">none</content_attribute>
+-    <content_attribute id="violence-worship">none</content_attribute>
+-    <content_attribute id="drugs-alcohol">none</content_attribute>
+-    <content_attribute id="drugs-narcotics">none</content_attribute>
+-    <content_attribute id="drugs-tobacco">none</content_attribute>
+-    <content_attribute id="sex-nudity">none</content_attribute>
+-    <content_attribute id="sex-themes">none</content_attribute>
+-    <content_attribute id="sex-homosexuality">none</content_attribute>
+-    <content_attribute id="sex-prostitution">none</content_attribute>
+-    <content_attribute id="sex-adultery">none</content_attribute>
+-    <content_attribute id="sex-appearance">none</content_attribute>
+-    <content_attribute id="language-profanity">none</content_attribute>
+-    <content_attribute id="language-humor">none</content_attribute>
+-    <content_attribute id="language-discrimination">none</content_attribute>
+-    <content_attribute id="social-chat">none</content_attribute>
+-    <content_attribute id="social-info">none</content_attribute>
+-    <content_attribute id="social-audio">none</content_attribute>
+-    <content_attribute id="social-location">none</content_attribute>
+-    <content_attribute id="social-contacts">none</content_attribute>
+-    <content_attribute id="money-purchasing">none</content_attribute>
+-    <content_attribute id="money-gambling">none</content_attribute>
+-  </content_rating>
++  <content_rating type="oars-1.1" />
+   <launchable type="desktop-id">org.gnome.Todo.desktop</launchable>
+   <developer_name>Jamie Murphy</developer_name>
+   <update_contact>hello@itsjamie.dev</update_contact>
+--
+libgit2 1.7.2
+
