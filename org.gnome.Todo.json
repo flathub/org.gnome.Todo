@@ -41,8 +41,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://download.gnome.org/sources/gnome-online-accounts/3.46/gnome-online-accounts-3.46.0.tar.xz",
-          "sha256": "5e7859ce4858a6b99d3995ed70527d66e297bb90bbf75ec8780fe9da22c1fcaa"
+          "url": "https://download.gnome.org/sources/gnome-online-accounts/3.52/gnome-online-accounts-3.52.1.tar.xz",
+          "sha256": "37c7522ff9454f8371b5a8725bba76ed7430c95b1f9efc7feba6268f052d1eb7"
         }
       ]
     },
@@ -61,8 +61,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/libical/libical/releases/download/v3.0.14/libical-3.0.14.tar.gz",
-          "sha256": "4284b780356f1dc6a01f16083e7b836e63d3815e27ed0eaaad684712357ccc8f"
+          "url": "https://github.com/libical/libical/releases/download/v3.0.18/libical-3.0.18.tar.gz",
+          "sha256": "72b7dc1a5937533aee5a2baefc990983b66b141dd80d43b51f80aced4aae219c"
         }
       ]
     },
@@ -81,8 +81,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://download.gnome.org/sources/libpeas/1.34/libpeas-1.34.0.tar.xz",
-          "sha256": "4305f715dab4b5ad3e8007daec316625e7065a94e63e25ef55eb1efb964a7bf0"
+          "url": "https://download.gnome.org/sources/libpeas/1.36/libpeas-1.36.0.tar.xz",
+          "sha256": "297cb9c2cccd8e8617623d1a3e8415b4530b8e5a893e3527bbfd1edd13237b4c"
         }
       ]
     },
@@ -130,10 +130,9 @@
       "buildsystem": "cmake-ninja",
       "sources": [
         {
-          "type": "git",
-          "commit": "ed45e3272a88ea9097a4fe25b5d6bfed4e1272ce",
-          "tag": "3.46.0",
-          "url": "https://gitlab.gnome.org/GNOME/evolution-data-server.git"
+          "type": "archive",
+          "url": "https://download.gnome.org/sources/evolution-data-server/3.52/evolution-data-server-3.52.4.tar.xz",
+          "sha256": "1b36a839db1c8d898066e19be78b995930a0a2f2a886f149e4f64e1755f064f7"
         }
       ]
     },
