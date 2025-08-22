@@ -1,0 +1,18 @@
+diff --git a/data/appdata/org.gnome.Todo.appdata.xml.in.in b/data/appdata/org.gnome.Todo.appdata.xml.in.in
+index 12d0dd3..f4e96b6 100644
+--- a/data/appdata/org.gnome.Todo.appdata.xml.in.in
++++ b/data/appdata/org.gnome.Todo.appdata.xml.in.in
+@@ -21,11 +21,11 @@
+ 
+   <screenshots>
+     <screenshot width="1920" height="1080" type="default">
+-      <image>https://gitlab.gnome.org/World/Endeavour/raw/main/data/appdata/no-tasks.png</image>
++      <image>https://gitlab.gnome.org/World/Endeavour/-/raw/92706b42784e553d9f841117111a5e14bd201e1c/data/appdata/no-tasks.png</image>
+       <caption>Empty state</caption>
+     </screenshot>
+     <screenshot width="1920" height="1080">
+-      <image>https://gitlab.gnome.org/World/Endeavour/raw/main/data/appdata/task-list.png</image>
++      <image>https://gitlab.gnome.org/World/Endeavour/-/raw/92706b42784e553d9f841117111a5e14bd201e1c/data/appdata/task-list.png</image>
+       <caption>Task lists</caption>
+     </screenshot>
+   </screenshots>
