@@ -1,7 +1,7 @@
 {
     "app-id": "org.gnome.Todo",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "48",
+    "runtime-version": "49",
     "sdk": "org.gnome.Sdk",
     "command": "endeavour",
     "finish-args": [
@@ -43,8 +43,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-online-accounts/3.55/gnome-online-accounts-3.55.1.tar.xz",
-                    "sha256": "a0b50fb75553c1e360713a827321cd17e2f91a735b8205ba5fd0ff374b26108b",
+                    "url": "https://download.gnome.org/sources/gnome-online-accounts/3.56/gnome-online-accounts-3.56.2.tar.xz",
+                    "sha256": "ce88df65457f0e63a0d8daff13322e29ecb584197a187f48a3a21be2fcd1c824",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "gnome-online-accounts"
@@ -153,8 +153,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/evolution-data-server/3.57/evolution-data-server-3.57.2.tar.xz",
-                    "sha256": "9b2647c4265e0a6767fe19c7d602eb9bdcf3f428e4f9c41617e962a7fff9eebd",
+                    "url": "https://download.gnome.org/sources/evolution-data-server/3.58/evolution-data-server-3.58.2.tar.xz",
+                    "sha256": "6942ecfc39ebb36b0b4363adff00771c1c2dfa34f54e80ec92c3baa3feb020fb",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "evolution-data-server"
